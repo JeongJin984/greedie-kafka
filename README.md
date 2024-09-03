@@ -10,8 +10,8 @@
 
 [to-be]
 1. membership 회원가입 API 확인
-   1. membership-created-event 발행 여부 확인 필요
-   2. money 정보 생성 확인
+   1. membership-created-event 발행 여부 확인 필요 V
+   2. money 정보 생성 확인 V
 
 [as-is]
 

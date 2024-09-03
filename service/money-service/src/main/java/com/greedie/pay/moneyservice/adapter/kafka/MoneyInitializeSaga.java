@@ -19,8 +19,8 @@ public class MoneyInitializeSaga {
     public void moneyInitialize(MemberCreatedEvent event) {
         memberMoneyUseCase.createMemberMoney(new CreateMemberMoneyCommand(
                 event.membershipId(),
-                event.currency(),
-                new BigDecimal(event.currency())
+                "KRW",
+                BigDecimal.ZERO
         ));
     }
 }

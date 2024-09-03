@@ -35,7 +35,7 @@ public class MembershipService implements SignUpRequestUseCase {
 
         signUpPersistencePort.registerMember(membership);
 
-        kafkaTemplate.send("member-signup-initialize", new MemberCreatedEvent(membership.getMembershipId(), "0", "KRW"))
+        kafkaTemplate.send("member-signup-initialize", new MemberCreatedEvent(membership.getMembershipId(), membership.getName(), membership.isCorp(), membership.getEmail(), membership.getAddress()))
                 .whenComplete((action, throwable) -> {
                     if(throwable == null) {
                         log.info("membership signup action completed: {}", action);
