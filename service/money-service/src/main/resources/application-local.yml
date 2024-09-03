@@ -1,0 +1,5 @@
+service:
+  banking:
+    url: localhost:10099
+
+
