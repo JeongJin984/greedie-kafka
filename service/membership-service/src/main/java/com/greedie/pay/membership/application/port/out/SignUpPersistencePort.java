@@ -5,4 +5,5 @@ import com.greedie.pay.membership.domain.Membership;
 
 public interface SignUpPersistencePort {
     MembershipJpaEntity registerMember(Membership membership);
+    void invalidateMembership(String membershipId);
 }

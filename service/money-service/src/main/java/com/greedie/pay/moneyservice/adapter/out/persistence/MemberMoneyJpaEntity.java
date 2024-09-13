@@ -1,5 +1,6 @@
 package com.greedie.pay.moneyservice.adapter.out.persistence;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -25,6 +26,7 @@ public class MemberMoneyJpaEntity {
 
     private BigDecimal balance;
 
+    @Column(nullable = false)
     private String currency;
 
     public void chargeBalance(BigDecimal amount) {
@@ -38,6 +40,5 @@ public class MemberMoneyJpaEntity {
         } else {
             this.balance = balance.subtract(amount);
         }
-
     }
 }

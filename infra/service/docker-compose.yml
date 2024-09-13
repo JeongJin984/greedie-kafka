@@ -27,6 +27,7 @@ services:
       - MYSQL_ROOT_PASSWORD=pass
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=admin
+
   membership-service:
     restart: on-failure
     image: membership-service:0.0.0
@@ -38,9 +39,9 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
-      
     environment:
       - SPRING_PROFILES_ACTIVE=dev
+
   money-service:
     restart: on-failure
     image: money-service:0.0.0
@@ -52,6 +53,5 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
-      
     environment:
       - SPRING_PROFILES_ACTIVE=dev

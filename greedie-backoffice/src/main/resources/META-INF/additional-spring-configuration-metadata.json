@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "service.host.membership",
+      "type": "java.lang.String",
+      "description": "membership service host."
+    },
+    {
+      "name": "service.host.money",
+      "type": "java.lang.String",
+      "description": "money service host."
+    }
+  ] }

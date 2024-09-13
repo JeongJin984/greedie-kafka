@@ -1,0 +1,33 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>member</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        table,tr,td,th {
+            border: 1px black solid;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <table style="border: 1px black solid">
+        <tr>
+            <th>moneyId</th>
+            <th>ownerMembershipId</th>
+            <th>balance</th>
+            <th>currency</th>
+        </tr>
+        <tr th:each="money : ${moneys}">
+            <td th:text="${money.getMemberMoneyId()}"></td>
+            <td th:text="${money.getOwnerMemberId()}"></td>
+            <td th:text="${money.getBalance()}"></td>
+            <td th:text="${money.getCurrency()}"></td>
+        </tr>
+    </table>
+    <button onclick="createMember()">생성</button>
+</div>
+</body>
+<script>
+</script>
+</html>

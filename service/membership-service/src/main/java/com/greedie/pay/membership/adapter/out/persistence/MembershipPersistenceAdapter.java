@@ -6,6 +6,7 @@ import com.greedie.pay.membership.domain.Membership;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @PersistenceAdapter
@@ -25,4 +26,21 @@ public class MembershipPersistenceAdapter implements SignUpPersistencePort {
                 membership.isCorp()
         ));
     }
+
+    @Override
+    public void invalidateMembership(String membershipId) {
+        MembershipJpaEntity member = membershipJpaEntityRepository.findById(membershipId)
+        .orElseThrow(() -> new NoSuchElementException("Membership not found id: " + membershipId));
+        member.invalidate();
+    }
+
+//    @Override
+//    public void updateMembership(Membership membership) {
+//        MembershipJpaEntity member = membershipJpaEntityRepository.findById(membership.getMembershipId())
+//                .orElseThrow(() -> new NoSuchElementException("Membership not found id: " + membership.getMembershipId()));
+//
+//        member.updateMembership(membership);
+//    }
+
+
 }

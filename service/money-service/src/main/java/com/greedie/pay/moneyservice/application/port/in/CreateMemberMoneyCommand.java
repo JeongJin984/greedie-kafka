@@ -15,6 +15,7 @@ public class CreateMemberMoneyCommand extends SelfValidating<CreateMemberMoneyCo
     @NotBlank
     private final String membershipId;
 
+    @NotBlank
     @NotNull
     private final String currency;
 

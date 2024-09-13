@@ -1,5 +1,6 @@
 package com.greedie.pay.membership.adapter.out.persistence;
 
+import com.greedie.pay.membership.domain.Membership;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,5 +27,9 @@ public class MembershipJpaEntity {
         this.email = email;
         this.isValid = isValid;
         this.isCorp = isCorp;
+    }
+
+    public void invalidate() {
+        this.isValid = false;
     }
 }

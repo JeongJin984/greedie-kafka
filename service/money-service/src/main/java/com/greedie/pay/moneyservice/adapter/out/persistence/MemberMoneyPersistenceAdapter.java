@@ -17,7 +17,8 @@ public class MemberMoneyPersistenceAdapter implements MemberMoneyPersistencePort
     private final MemberMoneyJpaRepository memberMoneyJpaRepository;
 
     @Override
-    public MemberMoneyJpaEntity createMemberMoney(String membershipId, String currency, BigDecimal amount) {
+    public MemberMoneyJpaEntity createMemberMoney(String membershipId, String currency, BigDecimal amount) throws IllegalArgumentException {
+        if(currency == null) throw new IllegalArgumentException("currency is null");
         return memberMoneyJpaRepository.save(new MemberMoneyJpaEntity(
                 UUID.randomUUID().toString(),
                 membershipId,

@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: greedie-backoffice
+  devtools:
+    livereload:
+      enabled: true
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+    check-template: true
+  datasource:
+    username: admin
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+service:
+  host:
+    membership: http://localhost:8083
+    money: http://localhost:8084

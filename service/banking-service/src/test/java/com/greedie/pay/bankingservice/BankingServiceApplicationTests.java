@@ -1,10 +1,10 @@
-package com.greedie.pay.membership;
+package com.greedie.pay.bankingservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MembershipServiceApplicationTests {
+class BankingServiceApplicationTests {
 
     @Test
     void contextLoads() {

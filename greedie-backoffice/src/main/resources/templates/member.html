@@ -1,0 +1,66 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>member</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        table,tr,td,th {
+            border: 1px black solid;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <table style="border: 1px black solid">
+        <tr>
+            <th>membershipId</th>
+            <th>username</th>
+            <th>email</th>
+            <th>address</th>
+            <th>email</th>
+            <th>isValid</th>
+            <th>isCorp</th>
+        </tr>
+        <tr th:each="member : ${members}">
+            <td th:text="${member.membershipId}"></td>
+            <td th:text="${member.name}"></td>
+            <td th:text="${member.email}"></td>
+            <td th:text="${member.address}"></td>
+            <td th:text="${member.email}"></td>
+            <td th:text="${member.isValid()}"></td>
+            <td th:text="${member.isCorp()}"></td>
+        </tr>
+    </table>
+    <button onclick="createMember()">생성</button>
+</div>
+</body>
+<script th:inline="javascript">
+
+  function createUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      let r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
+      return v.toString(16);
+    });
+  }
+
+  function createMember() {
+    let membershipHost = /*[[${@environment.getProperty('service.host.membership')}]]*/ ''
+    $.ajax({
+      url: membershipHost + '/api/v1/member/signup',
+      contentType: "application/json",
+      method: 'post',
+      data : JSON.stringify({
+        username : createUUID(),
+        password : createUUID(),
+        email : "asdf@asdf.asdf",
+        address : "mars",
+        isCorp: false
+      })
+    })
+  }
+
+  function money() {
+
+  }
+</script>
+</html>

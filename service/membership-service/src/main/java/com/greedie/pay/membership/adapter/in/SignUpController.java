@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SignUpController {
     private final SignUpRequestUseCase signUpRequestUseCase;
 
-    @PostMapping("/signUp")
+    @PostMapping("/signup")
     public ResponseEntity<?> signUp(@RequestBody SignUpRequest body) {
         SignUpRequestCommand signUpRequestCommand = new SignUpRequestCommand(
                 body.username(),

@@ -24,7 +24,7 @@ import java.util.UUID;
 public class MemberMoneyService implements MemberMoneyUseCase {
     private final MemberMoneyPersistencePort memberMoneyPersistencePort;
     private final GetRegisteredBankAccount getRegisteredBankAccount;
-    private final KafkaTemplate<String, RequestFirmbankingCommand> kafkaTemplate;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
 
     @Override
     public void chargeMemberMoney(ChargeMemberMoneyCommand command) {
